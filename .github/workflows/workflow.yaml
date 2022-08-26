@@ -31,4 +31,4 @@ jobs:
           node-version: '16'
           check-latest: true
       - run: yarn
-      - run: yarn test
+      - run: yarn test:ci
