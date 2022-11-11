@@ -1,7 +1,10 @@
-import { main } from 'src'
+import { getAddress } from '@ethersproject/address'
+import { sanctionedAddresses } from './index'
 
-describe(main, () => {
-  it("should return 'Hello, world!'", () => {
-    expect(main()).toBe('Hello, world!')
+describe('sanctionedAddresses', () => {
+  it('contains all checksummed addresses', () => {
+    for (const address of sanctionedAddresses) {
+      expect(getAddress(address)).toEqual(address)
+    }
   })
 })

@@ -21,19 +21,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: "echo '*** Do not write .sh scripts! ***'; ! find . -type f -name '*.sh' | grep ."
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-          check-latest: true
-      - run: yarn
-      - run: yarn typecheck
-      - run: yarn format:check
-      - run: yarn lint
   test:
     name: Test
     runs-on: ubuntu-latest
@@ -45,26 +32,3 @@ jobs:
           check-latest: true
       - run: yarn
       - run: yarn test:ci
-      - name: Upload Coverage Report
-        uses: actions/upload-artifact@v3
-        with:
-          path: coverage/lcov-report
-      - name: 'Upload coverage to Codecov'
-        uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-  deploy:
-    name: Deploy
-    if: github.ref == 'refs/heads/main'
-    needs:
-      - lint
-      - test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-          check-latest: true
-      - run: yarn
-      - run: yarn deploy

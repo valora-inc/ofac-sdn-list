@@ -1,6 +1,7 @@
 /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 
 module.exports = {
+  watchman: false,
   moduleFileExtensions: ['ts', 'js', 'json'],
   // Allow absolute imports from the tsconfig baseUrl
   moduleDirectories: ['node_modules', '<rootDir>'],
