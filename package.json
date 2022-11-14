@@ -23,10 +23,10 @@
   "devDependencies": {
     "@ethersproject/address": "^5.7.0",
     "@types/jest": "^28.1.8",
-    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@valora/eslint-config-typescript": "^1.0.1",
     "@valora/prettier-config": "^0.0.1",
-    "eslint": "^8.25.0",
+    "eslint": "^8.27.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^26.9.0",
     "eslint-plugin-react": "^7.31.10",
